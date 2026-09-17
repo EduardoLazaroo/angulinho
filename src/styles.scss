@@ -1,1 +1,218 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	min-width: 320px;
+	margin: 0;
+	background: #eef5ff;
+	color: #17324d;
+	font-family: "Segoe UI", sans-serif;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 1rem max(1.25rem, calc((100% - 1000px) / 2));
+	background: #0b5cad;
+	box-shadow: 0 2px 12px #0b5cad33;
+}
+
+nav a {
+	padding: 0.5rem 0.75rem;
+	border-radius: 999px;
+	color: #fff;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+nav a:hover {
+	background: #ffffff29;
+}
+
+.landing-page,
+.auth-page {
+	display: grid;
+	min-height: 100vh;
+	place-items: center;
+	padding: 2rem;
+	background: linear-gradient(135deg, #e8f2ff, #f8fbff);
+}
+
+.landing-page section,
+.auth-form {
+	display: grid;
+	width: min(100%, 440px);
+	gap: 1rem;
+	padding: 2.25rem;
+	border: 1px solid #d6e8fb;
+	border-radius: 18px;
+	background: #fff;
+	box-shadow: 0 12px 32px #2357891f;
+}
+
+h1,
+h2,
+p {
+	margin: 0;
+}
+
+h1 {
+	color: #084b91;
+	font-size: 2rem;
+}
+
+h2 {
+	color: #17324d;
+	font-size: 1.1rem;
+}
+
+p {
+	color: #59738d;
+	line-height: 1.5;
+}
+
+.eyebrow {
+	color: #0b5cad;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.feature-list {
+	display: grid;
+	gap: 0.6rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.feature-list li {
+	padding: 0.7rem 0.8rem;
+	border-radius: 10px;
+	background: #f2f8ff;
+	color: #285273;
+}
+
+.page {
+	width: min(100% - 2rem, 1000px);
+	margin: 2rem auto;
+	padding: 2rem;
+	border: 1px solid #d6e8fb;
+	border-radius: 18px;
+	background: #fff;
+	box-shadow: 0 10px 28px #23578914;
+}
+
+.actions,
+.page-header {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+}
+
+.page-header {
+	justify-content: space-between;
+	margin-bottom: 1.25rem;
+}
+
+.summary-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+	margin: 1.5rem 0;
+}
+
+.summary-card {
+	padding: 1rem;
+	border-radius: 12px;
+	background: #f2f8ff;
+}
+
+.summary-card strong {
+	display: block;
+	margin-top: 0.35rem;
+	color: #084b91;
+	font-size: 1.5rem;
+}
+
+input,
+button,
+.button {
+	padding: 0.7rem 0.9rem;
+	border: 1px solid #b9d8f6;
+	border-radius: 10px;
+	font: inherit;
+}
+
+button,
+.button {
+	background: #0b5cad;
+	color: #fff;
+	cursor: pointer;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+}
+
+.secondary {
+	background: #fff;
+	color: #0b5cad;
+}
+
+.auth-form a:not(.button),
+.back-link {
+	color: #0b5cad;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+table {
+	width: 100%;
+	margin: 1rem 0;
+	border-collapse: separate;
+	border-spacing: 0;
+	overflow: hidden;
+	border: 1px solid #d6e8fb;
+	border-radius: 12px;
+}
+
+th,
+td {
+	padding: 0.85rem;
+	border-bottom: 1px solid #d6e8fb;
+	text-align: left;
+}
+
+th {
+	background: #f2f8ff;
+	color: #285273;
+}
+
+tbody tr:last-child td {
+	border-bottom: 0;
+}
+
+@media (max-width: 600px) {
+	.landing-page,
+	.auth-page {
+		padding: 1rem;
+	}
+
+	.landing-page section,
+	.auth-form,
+	.page {
+		padding: 1.5rem;
+	}
+
+	.summary-grid {
+		grid-template-columns: 1fr;
+	}
+
+	nav {
+		padding: 0.75rem 1rem;
+	}
+}
