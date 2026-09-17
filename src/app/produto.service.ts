@@ -4,9 +4,7 @@ import { HttpClient } from '@angular/common/http';
 export interface Product {
   id: number;
   name: string;
-  description: string;
   price: number;
-  stock: number;
 }
 
 export type ProductPayload = Omit<Product, 'id'>;
@@ -19,6 +17,10 @@ export class ProdutoService {
 
   list() {
     return this.http.get<Product[]>(this.baseUrl);
+  }
+
+  getById(id: number) {
+    return this.http.get<Product>(`${this.baseUrl}/${id}`);
   }
 
   create(product: ProductPayload) {
