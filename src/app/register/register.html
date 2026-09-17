@@ -1,19 +1,29 @@
 <main class="auth-page">
-	<form class="auth-form">
+ 	<form class="auth-form" (ngSubmit)="register()">
 		<span class="eyebrow">Novo acesso</span>
 		<h1>Cadastro</h1>
 		<p>Preencha os dados abaixo para criar sua conta.</p>
 
 		<label for="name">Nome</label>
-		<input id="name" type="text" placeholder="Seu nome" />
+		<input id="name" type="text" name="name" [(ngModel)]="name" placeholder="Seu nome" required />
 
 		<label for="email">E-mail</label>
-		<input id="email" type="email" placeholder="seu@email.com" />
+		<input id="email" type="email" name="email" [(ngModel)]="email" placeholder="seu@email.com" required />
 
 		<label for="password">Senha</label>
-		<input id="password" type="password" placeholder="Crie uma senha" />
+		<input id="password" type="password" name="password" [(ngModel)]="password" placeholder="Crie uma senha" required minlength="6" />
 
-		<a class="button" routerLink="/login">Cadastrar</a>
+		<label for="cargo">Cargo</label>
+		<select id="cargo" name="cargo" [(ngModel)]="cargo" required>
+			<option value="usuario">Usuário</option>
+			<option value="administrador">Administrador</option>
+		</select>
+
+		@if (errorMessage) {
+			<p class="message error">{{ errorMessage }}</p>
+		}
+
+		<button type="submit" [disabled]="loading">{{ loading ? 'Cadastrando...' : 'Cadastrar' }}</button>
 		<p>Já possui cadastro? <a routerLink="/login">Entrar</a></p>
 	</form>
 </main>

@@ -140,6 +140,7 @@ p {
 }
 
 input,
+select,
 button,
 .button {
 	padding: 0.7rem 0.9rem;
@@ -158,7 +159,17 @@ button,
 	text-decoration: none;
 }
 
+button:disabled {
+	cursor: wait;
+	opacity: 0.65;
+}
+
 .secondary {
+	background: #fff;
+	color: #0b5cad;
+}
+
+.secondary-button {
 	background: #fff;
 	color: #0b5cad;
 }
@@ -168,6 +179,53 @@ button,
 	color: #0b5cad;
 	font-weight: 600;
 	text-decoration: none;
+}
+
+.message {
+	padding: 0.7rem 0.8rem;
+	border-radius: 10px;
+}
+
+.error {
+	background: #fff1f2;
+	color: #b42318;
+}
+
+.success {
+	background: #ecfdf3;
+	color: #067647;
+}
+
+.product-form {
+	display: grid;
+	gap: 1rem;
+	margin: 1.5rem 0;
+	padding: 1.25rem;
+	border-radius: 12px;
+	background: #f2f8ff;
+}
+
+.form-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+.form-grid label {
+	display: grid;
+	gap: 0.4rem;
+	color: #285273;
+	font-weight: 600;
+}
+
+.table-actions {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.danger-button {
+	border-color: #e23d4f;
+	background: #e23d4f;
 }
 
 table {
@@ -209,6 +267,10 @@ tbody tr:last-child td {
 	}
 
 	.summary-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.form-grid {
 		grid-template-columns: 1fr;
 	}
 
