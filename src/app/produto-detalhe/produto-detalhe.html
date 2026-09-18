@@ -14,7 +14,9 @@
       <h2>Editar produto</h2>
       <div class="form-grid">
         <label>Nome<input type="text" name="name" [(ngModel)]="name" required /></label>
-        <label>Preço<input type="number" name="price" [(ngModel)]="price" min="0" step="0.01" required /></label>
+        <label>
+          Preço<input type="number" name="price" [(ngModel)]="price" min="0" step="0.01" required />
+        </label>
       </div>
       <div class="actions">
         <button type="submit">Salvar alterações</button>

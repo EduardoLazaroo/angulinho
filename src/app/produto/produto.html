@@ -1,48 +1,52 @@
 <app-navbar />
 <main class="page">
-	<div class="page-header">
-		<div>
-			<span class="eyebrow">Cadastro</span>
-			<h1>Produtos</h1>
-			<p>Exemplo simples de CRUD.</p>
-		</div>
-		<button type="button" (click)="resetForm()">Novo produto</button>
-	</div>
+  <div class="page-header">
+    <div>
+      <span class="eyebrow">Cadastro</span>
+      <h1>Produtos</h1>
+      <p>Exemplo simples de CRUD.</p>
+    </div>
+    <button type="button" (click)="resetForm()">Novo produto</button>
+  </div>
 
-	<form class="product-form" (ngSubmit)="saveProduct()">
-		<h2>Cadastrar produto</h2>
-		<div class="form-grid">
-			<label>Nome<input type="text" name="name" [(ngModel)]="name" required /></label>
-			<label>Preço<input type="number" name="price" [(ngModel)]="price" min="0" step="0.01" required /></label>
-		</div>
-		<div class="actions">
-			<button type="submit">Cadastrar</button>
-			<button class="secondary-button" type="button" (click)="resetForm()">Limpar</button>
-		</div>
-	</form>
+  <form class="product-form" (ngSubmit)="saveProduct()">
+    <h2>Cadastrar produto</h2>
+    <div class="form-grid">
+      <label>Nome<input type="text" name="name" [(ngModel)]="name" required /></label>
+      <label
+        >Preço<input type="number" name="price" [(ngModel)]="price" min="0" step="0.01" required
+      /></label>
+    </div>
+    <div class="actions">
+      <button type="submit">Cadastrar</button>
+      <button class="secondary-button" type="button" (click)="resetForm()">Limpar</button>
+    </div>
+  </form>
 
-	<table>
-		<thead>
-			<tr>
-				<th>Nome</th>
-				<th>Preço</th>
-				<th>Ações</th>
-			</tr>
-		</thead>
-		<tbody>
-			@for (product of products; track product.id) {
-				<tr>
-					<td>{{ product.name }}</td>
-					<td>R$ {{ product.price | number: '1.2-2' }}</td>
-					<td class="table-actions">
-						<a class="button" [routerLink]="['/produtos', product.id]">Detalhes</a>
-					</td>
-				</tr>
-			} @empty {
-				<tr><td colspan="3">Nenhum produto cadastrado.</td></tr>
-			}
-		</tbody>
-	</table>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of products; track product.id) {
+        <tr>
+          <td>{{ product.name }}</td>
+          <td>R$ {{ product.price | number: '1.2-2' }}</td>
+          <td class="table-actions">
+            <a class="button" [routerLink]="['/produtos', product.id]">Detalhes</a>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="3">Nenhum produto cadastrado.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
 
-	<a class="back-link" routerLink="/home">Voltar ao início</a>
+  <a class="back-link" routerLink="/home">Voltar ao início</a>
 </main>

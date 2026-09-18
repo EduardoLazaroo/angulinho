@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Navbar } from '../navbar/navbar';
-import { Product, ProdutoService } from '../produto.service';
+import { Product, ProdutoService } from '../services/produto.service';
 
 @Component({
   imports: [DecimalPipe, FormsModule, Navbar, RouterLink],
@@ -16,7 +16,10 @@ export class Produto implements OnInit {
   name = '';
   price = 0;
 
-  constructor(private readonly produtoService: ProdutoService) {}
+  constructor(
+    private readonly produtoService: ProdutoService,
+    private readonly changeDetector: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     this.loadProducts();
@@ -25,6 +28,8 @@ export class Produto implements OnInit {
   loadProducts(): void {
     this.produtoService.list().subscribe((products) => {
       this.products = products;
+      this.changeDetector.markForCheck();
+      console.log('Products loaded:', this.products);
     });
   }
 

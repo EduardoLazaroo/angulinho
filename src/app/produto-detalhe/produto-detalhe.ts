@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Navbar } from '../navbar/navbar';
-import { Product, ProdutoService } from '../produto.service';
+import { Product, ProdutoService } from '../services/produto.service';
 
 @Component({
   selector: 'app-produto-detalhe',
@@ -21,6 +21,7 @@ export class ProdutoDetalhe implements OnInit {
     private readonly route: ActivatedRoute,
     private readonly router: Router,
     private readonly produtoService: ProdutoService,
+    private readonly changeDetector: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {
@@ -31,9 +32,11 @@ export class ProdutoDetalhe implements OnInit {
         this.product = product;
         this.name = product.name;
         this.price = product.price;
+        this.changeDetector.markForCheck();
       },
       error: () => {
         this.errorMessage = 'Produto não encontrado.';
+        this.changeDetector.markForCheck();
       },
     });
   }
